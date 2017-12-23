@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: 'mongodb:latest'
+    volumes:
+      - ./data:/data
+    ports:
+      - "27017:3020"
+  app:
+    image: 'ALCDEVOPSApp:latest'
+    links:
+      - mongodb
+    ports: "3000:3010"
